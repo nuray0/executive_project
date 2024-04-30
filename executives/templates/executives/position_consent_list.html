@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block title %}Position consent for {{ executive.first_name }} {{ executive.last_name }}{% endblock %}
+
+{% block content %}
+
+    <h1>Position consent for {{ executive.first_name }} {{ executive.last_name }}</h1>
+    <a href="{% url 'executives:position_consent_add' pk=executive.pk %}">Add position consent</a>
+
+    {% if position_consents %}
+        {% for position_consent in position_consents %}
+            <a href="{% url 'executives:position_consent_edit' pk=executive.pk position_consent_pk=position_consent.pk %}">Edit position consent</a>
+            <a href="{% url 'executives:position_consent_delete' pk=executive.pk position_consent_pk=position_consent.pk %}">Delete position consent</a>
+            <div>
+                <p>Issue date {{ position_consent.issue_date }}</p>
+                <p>Protocol number {{ position_consent.protocol_number }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Executive doesn't have position_consent yet.</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'executives:detail' pk=executive.pk %}">Back to executive</a>
+    </div>
+
+
+{% endblock %}

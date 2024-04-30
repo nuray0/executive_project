@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block title %}Education of {{ executive.first_name }} {{ executive.last_name }}{% endblock %}
+
+{% block content %}
+
+    <h1>Education of {{ executive.first_name }} {{ executive.last_name }}</h1>
+    <a href="{% url 'executives:education_add' pk=executive.pk %}">Add education</a>
+
+    {% if educations %}
+        {% for education in educations %}
+            <a href="{% url 'executives:education_edit' pk=executive.pk education_pk=education.pk %}">Edit education</a>
+            <a href="{% url 'executives:education_delete' pk=executive.pk education_pk=education.pk %}">Delete education</a>
+            <div>
+                <p>University {{ education.university }}</p>
+                <p>Graduation_year {{ education.graduation_year }}</p>
+                <p>Degree {{ education.degree }}</p>
+                <p>Specialization {{ education.specialization }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Executive doesn't have education yet.</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'executives:detail' pk=executive.pk %}">Back to executive</a>
+    </div>
+
+
+{% endblock %}

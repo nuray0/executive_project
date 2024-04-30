@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    <h1>Executives</h1>
+    <a href="{% url 'executives:add' %}">Add executive</a>
+
+    {% if executives %}
+        <div>Name</div>
+        {% for executive in executives %}
+            <div>
+                <a href="{% url 'executives:detail' pk=executive.pk %}">{{ executive.first_name }} {{ executive.last_name }}</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You don't have executives yet.</p>
+    {% endif %}
+
+{% endblock %}

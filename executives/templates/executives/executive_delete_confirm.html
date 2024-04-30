@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete "{{ executive }}"?</p>
+    <form id="delete-form" action="{% url 'executives:delete' executive.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" id="delete-btn">Confirm Delete</button>
+        <button type="button" onclick="cancelDelete()">Cancel</button>
+    </form>
+
+    <script>
+        function cancelDelete() {
+            window.history.back();
+        }
+
+        document.getElementById('delete-btn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            var confirmDelete = confirm('Are you sure you want to delete this executive?');
+            if (!confirmDelete) {
+                e.preventDefault(); // Prevent form submission if deletion is canceled
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% block title %}Certificates of {{ executive.first_name }} {{ executive.last_name }}{% endblock %}
+
+{% block content %}
+
+    <h1>Certificates of {{ executive.first_name }} {{ executive.last_name }}</h1>
+    <a href="{% url 'executives:certificate_add' pk=executive.pk %}">Add certificate</a>
+
+    {% if certificates %}
+        {% for certificate in certificates %}
+            <a href="{% url 'executives:certificate_edit' pk=executive.pk certificate_pk=certificate.pk %}">Edit certificate</a>
+            <a href="{% url 'executives:certificate_delete' pk=executive.pk certificate_pk=certificate.pk %}">Delete certificate</a>
+            <div>
+                <p>Name {{ certificate.name }}</p>
+                <p>Organization {{ certificate.organization }}</p>
+                <p>{{ certificate.start_date }} - {{ certificate.end_date }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Executive doesn't have certificates yet.</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'executives:detail' pk=executive.pk %}">Back to executive</a>
+    </div>
+
+
+{% endblock %}

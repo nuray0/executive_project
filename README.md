@@ -1,17 +1,20 @@
 # Установка, настройка и использование веб-приложения
 
 ## Шаг 1: Скачать код с репозитория
-
+```
 git clone https://github.com/nuray0/executive_test_project.git
+```
 
 ## Шаг 2: Перейти в папку проекта
-
-
+```
 cd executive_test_project
+```
+
 ## Шаг 3: Применить миграции
-
-
+```
 docker-compose run web python manage.py migrate
+```
+
 ## Шаг 4: Создать миграции
 
 docker-compose run web python manage.py makemigrations

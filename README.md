@@ -40,20 +40,20 @@ http://127.0.0.1:8000/
 ```
 
 ## Шаг 7: Создать аккаунт и войти
-![Страница для регистрации](https://github.com/nuray0/executive_test_project/tree/master/assets/images/signup_page.jpeg)
 ![Страница для регистрации](https://github.com/nuray0/executive_test_project/raw/master/assets/images/signup_page.jpeg)
-
+![Страница для входа](https://github.com/nuray0/executive_test_project/raw/master/assets/images/login_page.jpeg)
 
 ## Шаг 8: Создать управляющего
+![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/dashboard_empty.jpeg)
+![Форма для создания управляющего](https://github.com/nuray0/executive_test_project/raw/master/assets/images/add_executive.jpeg)
 
 ## Шаг 9: Добавить больше информации к управляющему (по желанию)
-
 Можно добавить информацию, такую как опыт работы, сертификаты, согласия на занятие должности и образование.
+![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/executive_details.jpeg)
 
 ## Шаг 10: Просмотреть список управляющих
-
 На главной странице отображается список всех управляющих с краткой информацией о каждом из них.
+![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/dashboard.jpeg)
 
 # Шаг 11: Редактировать и удалять профили управляющих (по желанию)
-
 Вы можете редактировать и удалять управляющих, а также данные их профилей по своему усмотрению.

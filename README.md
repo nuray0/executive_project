@@ -40,7 +40,9 @@ http://127.0.0.1:8000/
 ```
 
 ## Шаг 7: Создать аккаунт и войти
-![Страница для регистрации](https://github.com/nuray0/executive_test_project/tree/master/assets/images/signup_page)
+![Страница для регистрации](https://github.com/nuray0/executive_test_project/tree/master/assets/images/signup_page.jpeg)
+![Страница для регистрации](https://github.com/nuray0/executive_test_project/raw/master/assets/images/signup_page.jpeg)
+
 
 ## Шаг 8: Создать управляющего
 

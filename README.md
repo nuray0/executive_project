@@ -11,7 +11,7 @@ cd executive_test_project
 ```
 
 ## Шаг 3: Установите Docker
-Если вы еще не установили Docker, скачайте и установите его с [официального сайта Docker:](https://www.docker.com/get-started) 
+Если вы еще не установили Docker, скачайте и установите его с [официального сайта Docker.](https://www.docker.com/get-started) 
 
 ## Шаг 4: Запустите Docker Desktop
 Чтобы убедиться, что Docker работает, откройте терминал (или командную строку на Windows) и выполните команду ```docker --version```. Если Docker установлен правильно, вы увидите версию Docker, установленную на вашем компьютере

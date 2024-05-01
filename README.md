@@ -39,7 +39,8 @@ http://localhost:8000/
 http://127.0.0.1:8000/
 ```
 
-## Шаг 7: Создать аккаунт
+## Шаг 7: Создать аккаунт и войти
+![Страница для регистрации](https://github.com/nuray0/executive_test_project/tree/master/assets/images/signup_page)
 
 ## Шаг 8: Создать управляющего
 

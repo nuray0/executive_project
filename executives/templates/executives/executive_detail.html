@@ -3,46 +3,47 @@
 {% block title %}Executive details{% endblock %}
 
 {% block content %}
-    <a href="{% url 'executives:edit' pk=executive.pk %}">Edit executive</a>
-    <a href="{% url 'executives:delete' pk=executive.pk %}">Delete executive</a>
+    <a href="{% url 'executives:edit' pk=executive.pk %}" class="button-like edit-button">Edit executive</a>
+    <a href="{% url 'executives:delete' pk=executive.pk %}" class="button-like delete-button">Delete executive</a>
 
     <h1>{{ executive.first_name }} {{ executive.last_name }}</h1>
 
     <div>
         <div>
-            <p>Country</p>
-            <p>{{ executive.country }}</p>
+            <p>Country: {{ executive.country }}</p>
         </div>
 
         <div>
-            <p>Resume</p>
-            <a href="{% url 'executives:serve_resume' pk=executive.pk %}" target="_blank">Open Resume</a>
+            <p>Resume: <a href="{% url 'executives:serve_resume' pk=executive.pk %}" target="_blank">Open resume</a></p>
         </div>
 
         <div>
-            <p>Is resident</p>
-            <p>{% if executive.is_resident %}Yes{% else %}No{% endif %}</p>
+            <p>Is resident: {% if executive.is_resident %}Yes{% else %}No{% endif %}</p>
         </div>
     </div>
 
+    <br>
+
     <div>
-        <a href="{% url 'executives:work_experience_list' pk=executive.pk %}">Work Experience</a>
+        <a href="{% url 'executives:work_experience_list' pk=executive.pk %}" class="button-like">Work Experience</a>
     </div>
 
     <div>
-        <a href="{% url 'executives:certificate_list' pk=executive.pk %}">Certificates</a>
+        <a href="{% url 'executives:certificate_list' pk=executive.pk %}" class="button-like">Certificates</a>
     </div>
 
     <div>
-        <a href="{% url 'executives:position_consent_list' pk=executive.pk %}">Position consent</a>
+        <a href="{% url 'executives:position_consent_list' pk=executive.pk %}" class="button-like">Position consent</a>
     </div>
 
     <div>
-        <a href="{% url 'executives:education_list' pk=executive.pk %}">Education</a>
+        <a href="{% url 'executives:education_list' pk=executive.pk %}" class="button-like">Education</a>
     </div>
 
+    <br>
+
     <div>
-        <a href="{% url 'dashboard:index' %}">Back to dashboard</a>
+        <a href="{% url 'dashboard' %}" class="button-like back-button">Back to dashboard</a>
     </div>
 
 

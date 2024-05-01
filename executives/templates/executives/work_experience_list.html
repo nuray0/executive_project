@@ -4,23 +4,23 @@
 {% block content %}
 
     <h1>Work experience of {{ executive.first_name }} {{ executive.last_name }}</h1>
-    <a href="{% url 'executives:work_experience_add' pk=executive.pk %}">Add work experience</a>
+    <a href="{% url 'executives:work_experience_add' pk=executive.pk %}" class="button-like">Add work experience</a>
 
     {% if work_experiences %}
         {% for work_experience in work_experiences %}
-            <a href="{% url 'executives:work_experience_edit' pk=executive.pk work_experience_pk=work_experience.pk %}">Edit work experience</a>
-            <a href="{% url 'executives:work_experience_delete' pk=executive.pk work_experience_pk=work_experience.pk %}">Delete work experience</a>
-            <div>
-                <p>Company {{ work_experience.company }}</p>
-                <p>{{ work_experience.start_date }} - {{ work_experience.end_date }}</p>
-            </div>
+        <div class="section">
+            <p>Company {{ work_experience.company }}</p>
+            <p>{{ work_experience.start_date }} - {{ work_experience.end_date }}</p>
+            <a href="{% url 'executives:work_experience_edit' pk=executive.pk work_experience_pk=work_experience.pk %}" class="button-like edit-button">Edit work experience</a>
+            <a href="{% url 'executives:work_experience_delete' pk=executive.pk work_experience_pk=work_experience.pk %}" class="button-like delete-button">Delete work experience</a>
+        </div>
         {% endfor %}
     {% else %}
         <p>Executive doesn't have work experience yet.</p>
     {% endif %}
 
     <div>
-        <a href="{% url 'executives:detail' pk=executive.pk %}">Back to executive</a>
+        <a href="{% url 'executives:detail' pk=executive.pk %}" class="button-like back-button">Back to executive</a>
     </div>
 
 {% endblock %}

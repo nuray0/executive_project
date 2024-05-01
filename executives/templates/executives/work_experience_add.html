@@ -6,6 +6,11 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit</button>
+    <button type="submit" class="button-like">Submit</button>
 </form>
+
+<div>
+    <a href="{% url 'executives:detail' pk=executive.pk %}" class="button-like back-button">Back to executive</a>
+</div>
+
 {% endblock %}

@@ -40,7 +40,8 @@ def login(request):
             user = authenticate(username=username, password=password)
             if user:
                 auth_login(request, user)
-                return redirect('dashboard:index')
+                return redirect('dashboard')
+        messages.error(request, 'Could not log in, please try again')
         return render(request, 'users/login.html', {'form': form})
     else:
         form = LoginForm()

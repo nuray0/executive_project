@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Executives</h1>
+    <div>
+        <!-- Use a button-like styled link -->
+        <a href="{% url 'executives:add' %}" class="button-like">Add executive</a>
+    </div>
+
+    {% if executives %}
+        <div>
+            {% for executive in executives %}
+
+                <div class="section">
+                    <!-- Use a button-like styled link for each executive -->
+                    <a href="{% url 'executives:detail' pk=executive.pk %}" class="section-title">
+                        <b>{{ executive.first_name }} {{ executive.last_name }}</b>
+                    </a>
+                    {% if executive.workexperience_set.exists %}
+                        <!-- Print the first work experience name -->
+                        <p><b>Latest work experience:</b> {{ executive.workexperience_set.first.company }}, {{ executive.workexperience_set.first.start_date }} - {{ executive.workexperience_set.first.end_date }}</p>
+                    {% endif %}
+                    {% if executive.certificate_set.exists %}
+                        <!-- Print the first certificate name -->
+                        <p><b>Latest certificate:</b> {{ executive.certificate_set.first.name }}, {{ executive.certificate_set.first.organization }}, {{ executive.certificate_set.first.start_date }} - {{ executive.certificate_set.first.end_date }}</p>
+                    {% endif %}
+                    {% if executive.positionconsent_set.exists %}
+                        <!-- Print the first position consent issue date -->
+                        <p><b>Latest position consent issue date:</b> {{ executive.positionconsent_set.first.issue_date }}</p>
+                    {% endif %}
+                    {% if executive.education_set.exists %}
+                        <!-- Print the first education university -->
+                        <p><b>Latest education:</b> {{ executive.education_set.first.university }}, {{ executive.education_set.first.graduation_year }}, {{ executive.education_set.first.degree }}</p>
+                    {% endif %}
+                </div>
+                
+                
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You don't have executives yet.</p>
+    {% endif %}
+{% endblock %}

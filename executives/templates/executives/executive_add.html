@@ -6,6 +6,11 @@
 <form method="post"  enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit</button>
+    <button type="submit" class="button-like">Submit</button>
 </form>
+
+<div>
+    <a href="{% url 'dashboard' %}" class="button-like back-button">Back to dashboard</a>
+</div>
+
 {% endblock %}

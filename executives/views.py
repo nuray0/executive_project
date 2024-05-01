@@ -10,6 +10,33 @@ from .forms import ExecutiveForm, WorkExperienceForm, CertificateForm, PositionC
 from .models import Executive, WorkExperience, Certificate, PositionConsent, Education
 
 
+@login_required
+def executive_add(request):
+    if request.method == 'POST':
+        form = ExecutiveForm(request.POST,request.FILES)
+        if form.is_valid():
+            executive = form.save(commit=False)
+
+            print('request user:', request.user)
+            executive.user = request.user
+            executive.save()
+
+            messages.success(request, 'Executive added successfully')
+            return redirect('dashboard')
+
+        print('request is not valid')
+    else:
+        form = ExecutiveForm()
+    return render(request, 'executives/executive_add.html', {'form': form})
+
+
+@login_required
+def executive_detail(request, pk):
+    executive = get_object_or_404(Executive, user = request.user, pk=pk)
+    return render(request, 'executives/executive_detail.html', {'executive': executive})
+
+
+@login_required
 def serve_resume(request, pk):
     executive = Executive.objects.get(pk=pk)
     resume_path = executive.resume.path
@@ -22,33 +49,6 @@ def serve_resume(request, pk):
     except Exception as e:
         print(f"Error serving resume: {e}")
         return HttpResponseServerError("An error occurred while serving the resume file.")
-    
-
-@login_required
-def executive_add(request):
-    if request.method == 'POST':
-        form = ExecutiveForm(request.POST,request.FILES)
-        print('form:', form)
-        if form.is_valid():
-            executive = form.save(commit=False)
-
-            print('request user:', request.user)
-            executive.user = request.user
-            executive.save()
-
-            messages.success(request, 'Executive added successfully')
-            return redirect('dashboard:index')
-
-        print('request is not valid')
-    else:
-        form = ExecutiveForm()
-    return render(request, 'executives/executive_add.html', {'form': form})
-
-
-@login_required
-def executive_detail(request, pk):
-    executive = get_object_or_404(Executive, user = request.user, pk=pk)
-    return render(request, 'executives/executive_detail.html', {'executive': executive})
 
 
 @login_required
@@ -66,7 +66,7 @@ def executive_edit(request, pk):
             form.save()
 
             messages.success(request, 'Changes were saved')
-            return redirect('dashboard:index')
+            return redirect('dashboard')
     else:
         form = ExecutiveForm(instance=executive)
     return render(request, 'executives/executive_edit.html', {'form': form})
@@ -80,19 +80,18 @@ def executive_delete(request, pk):
         # If the user confirmed the deletion
         executive.delete()
         messages.success(request, 'The executive was deleted')
-        return redirect('dashboard:index')
+        return redirect('dashboard')
 
     return render(request, 'executives/executive_delete_confirm.html', {'executive': executive})
 
 
 @login_required
 def work_experience_add(request, pk):
+    executive = Executive.objects.get(pk=pk)
     if request.method == 'POST':
         form = WorkExperienceForm(request.POST)
-        print('form:', form)
         if form.is_valid():
             work_experience = form.save(commit=False)
-            executive = Executive.objects.get(pk=pk)
             work_experience.executive = executive
             work_experience.save()
 
@@ -102,7 +101,10 @@ def work_experience_add(request, pk):
         print('request is not valid')
     else:
         form = WorkExperienceForm()
-    return render(request, 'executives/work_experience_add.html', {'form': form})
+    return render(request, 'executives/work_experience_add.html', {
+        'form': form,
+        'executive': executive,
+    })
 
 
 @login_required
@@ -141,12 +143,11 @@ def work_experience_list(request, pk):
 
 @login_required
 def certificate_add(request, pk):
+    executive = Executive.objects.get(pk=pk)
     if request.method == 'POST':
         form = CertificateForm(request.POST)
-        print('form:', form)
         if form.is_valid():
             certificate = form.save(commit=False)
-            executive = Executive.objects.get(pk=pk)
             certificate.executive = executive
             certificate.save()
 
@@ -156,7 +157,10 @@ def certificate_add(request, pk):
         print('request is not valid')
     else:
         form = CertificateForm()
-    return render(request, 'executives/certificate_add.html', {'form': form})
+    return render(request, 'executives/certificate_add.html', {
+        'form': form,
+        'executive': executive,
+    })
 
 
 @login_required
@@ -196,12 +200,11 @@ def certificate_list(request, pk):
 
 @login_required
 def position_consent_add(request, pk):
+    executive = Executive.objects.get(pk=pk)
     if request.method == 'POST':
         form = PositionConsentForm(request.POST)
-        print('form:', form)
         if form.is_valid():
             position_consent = form.save(commit=False)
-            executive = Executive.objects.get(pk=pk)
             position_consent.executive = executive
             position_consent.save()
 
@@ -211,7 +214,10 @@ def position_consent_add(request, pk):
         print('request is not valid')
     else:
         form = PositionConsentForm()
-    return render(request, 'executives/position_consent_add.html', {'form': form})
+    return render(request, 'executives/position_consent_add.html', {
+        'form': form,
+        'executive': executive,
+    })
 
 
 @login_required
@@ -251,12 +257,11 @@ def position_consent_list(request, pk):
 
 @login_required
 def education_add(request, pk):
+    executive = Executive.objects.get(pk=pk)
     if request.method == 'POST':
         form = EducationForm(request.POST)
-        print('form:', form)
         if form.is_valid():
             education = form.save(commit=False)
-            executive = Executive.objects.get(pk=pk)
             education.executive = executive
             education.save()
 
@@ -266,7 +271,10 @@ def education_add(request, pk):
         print('request is not valid')
     else:
         form = EducationForm()
-    return render(request, 'executives/education_add.html', {'form': form})
+    return render(request, 'executives/education_add.html', {
+        'form': form,
+        'executive': executive,
+    })
 
 
 @login_required

@@ -7,8 +7,8 @@
     <p>Are you sure you want to delete "{{ executive }}"?</p>
     <form id="delete-form" action="{% url 'executives:delete' executive.pk %}" method="post">
         {% csrf_token %}
-        <button type="submit" id="delete-btn">Confirm Delete</button>
-        <button type="button" onclick="cancelDelete()">Cancel</button>
+        <button type="submit" id="delete-btn" class="button-like edit-button">Confirm Delete</button>
+        <button type="button" onclick="cancelDelete()" class="button-like">Cancel</button>
     </form>
 
     <script>

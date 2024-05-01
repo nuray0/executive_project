@@ -51,7 +51,7 @@ http://localhost:8000/
 http://127.0.0.1:8000/
 ```
 
-## Шаг 9: Создать аккаунт и войти
+## Шаг 9: Зарегистрируйтесь и войдите в свой аккаунт
 ![Страница для регистрации](https://github.com/nuray0/executive_test_project/raw/master/assets/images/signup_page.jpeg)
 ![Страница для входа](https://github.com/nuray0/executive_test_project/raw/master/assets/images/login_page.jpeg)
 

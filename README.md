@@ -25,7 +25,7 @@ docker-compose run web python manage.py migrate
 docker-compose up
 ```
 
-## Шаг 6: Как запустился Docker, открыть приложение в браузере
+## Шаг 6: Как запустился Docker, открыть приложение в браузере по адресу
 ```
 http://0.0.0.0:8000/
 ```

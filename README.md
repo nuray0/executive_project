@@ -10,14 +10,14 @@ git clone https://github.com/nuray0/executive_test_project.git
 cd executive_test_project
 ```
 
-## Шаг 3: Применить миграции
-```
-docker-compose run web python manage.py migrate
-```
-
-## Шаг 4: Создать миграции
+## Шаг 3: Создать миграции
 ```
 docker-compose run web python manage.py makemigrations
+```
+
+## Шаг 4: Применить миграции
+```
+docker-compose run web python manage.py migrate
 ```
 
 ## Шаг 5: Запустить контейнеры Docker

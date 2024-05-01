@@ -9,6 +9,10 @@ git clone https://github.com/nuray0/executive_test_project.git
 ```
 cd executive_test_project
 ```
+или если скачали проект в виде zip-архива:
+```
+cd executive_test_project-master
+```
 
 ## Шаг 3: Установите Docker
 Если вы еще не установили Docker, скачайте и установите его с [официального сайта Docker.](https://www.docker.com/get-started) 

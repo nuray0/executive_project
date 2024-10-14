@@ -1,71 +1,74 @@
-# Установка, настройка и использование веб-приложения
+# Installing, Setting Up, and Using the Web Application
 
-## Шаг 1: Скачать код с репозитория
+## Step 1: Download the code from the repository
 ```
 git clone https://github.com/nuray0/executive_test_project.git
 ```
 
-## Шаг 2: Перейти в папку проекта
+## Step 2: Go to the project folder
 ```
 cd executive_test_project
 ```
-или если скачали проект в виде zip-архива:
+or if you downloaded the project as a zip archive:
 ```
 cd executive_test_project-master
 ```
 
-## Шаг 3: Установите Docker
-Если вы еще не установили Docker, скачайте и установите его с [официального сайта Docker.](https://www.docker.com/get-started) 
+## Step 3: Install Docker
+If you haven't installed Docker yet, download and install it from the [official Docker website.](https://www.docker.com/get-started) 
 
-## Шаг 4: Запустите Docker Desktop
-Чтобы убедиться, что Docker работает, откройте терминал (или командную строку на Windows) и выполните команду ```docker --version```. Если Docker установлен правильно, вы увидите версию Docker, установленную на вашем компьютере.
+## Step 4: Start Docker Desktop
+To ensure Docker is working, open a terminal (or command prompt on Windows) and run the command ```docker --version```. If Docker is installed correctly, you will see the version of Docker installed on your computer.
 
 
-## Шаг 5: Создать миграции
+## Step 5: Create migrations
 ```
 docker-compose run web python manage.py makemigrations
 ```
 
-## Шаг 6: Применить миграции
+## Apply migrations
 ```
 docker-compose run web python manage.py migrate
 ```
 
-## Шаг 7: Запустить контейнеры Docker
-Этот шаг может занять несколько минут.
+## Step 7: Start Docker containers
+This step may take a few minutes.
 ```
 docker-compose up
 ```
 
-## Шаг 8: Открыть приложение в браузере по адресу
+## Step 8: Open the application in your browser at:
 ```
 http://0.0.0.0:8000/
 ```
 
-Если по этому адресу выше не открывается, попробуйте зайти по:
+If the address above doesn’t open, try visiting:
 ```
 http://localhost:8000/
 ```
-или
+or
+
 ```
 http://127.0.0.1:8000/
 ```
 
-## Шаг 9: Зарегистрируйтесь и войдите в свой аккаунт
-![Страница для регистрации](https://github.com/nuray0/executive_test_project/raw/master/assets/images/signup_page.jpeg)
-![Страница для входа](https://github.com/nuray0/executive_test_project/raw/master/assets/images/login_page.jpeg)
+## Step 9: Register and log in to your account
+![Sign up page](https://github.com/nuray0/executive_test_project/raw/master/assets/images/signup_page.jpeg)
+![Login page](https://github.com/nuray0/executive_test_project/raw/master/assets/images/login_page.jpeg)
 
-## Шаг 10: Создать управляющего
+## Step 10: Create an executive
 ![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/dashboard_empty.jpeg)
-![Форма для создания управляющего](https://github.com/nuray0/executive_test_project/raw/master/assets/images/add_executive.jpeg)
+![Form to create an executive](https://github.com/nuray0/executive_test_project/raw/master/assets/images/add_executive.jpeg)
 
-## Шаг 11: Добавить больше информации к управляющему (по желанию)
+## Step 11: Add more information to the executive (optional)
 Можно добавить информацию, такую как опыт работы, сертификаты, согласия на занятие должности и образование.
-![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/executive_details.jpeg)
+![Main page](https://github.com/nuray0/executive_test_project/raw/master/assets/images/executive_details.jpeg)
 
-## Шаг 12: Просмотреть список управляющих
+## Step 12: View the list of executives
 На главной странице отображается список всех управляющих с краткой информацией о каждом из них.
-![Главная страница](https://github.com/nuray0/executive_test_project/raw/master/assets/images/dashboard.jpeg)
+![Main page](https://github.com/nuray0/executive_test_project/raw/master/assets/images/dashboard.jpeg)
 
-# Шаг 13: Редактировать и удалять профили управляющих (по желанию)
-Вы можете редактировать и удалять управляющих, а также данные их профилей по своему усмотрению.
+## Step 13: Edit and delete executive profiles (optional)
+You can edit and delete executives and their profile data at your discretion.
+
+## Voila! Congratulations, you've now fully explored this app!
